@@ -5,13 +5,35 @@ Kid's Lunch Code Practice
 <body onload="emptyCode();">
 
 <script type="text/javascript">
+var correctCount = 0;
+var wrongCount = 0;
 function enterCode(key){
-		document.forms[0].code.value = "";
+		var codein = document.forms[0].code
+		console.log(document.forms[0].code.value)
 
-	//if(code.value.length == 4){
+		if(codein.value == "31829"){
+			document.getElementById("messageCorrect").style.display = "block";
+			correctCount +=1;
+			console.log("correct count ", correctCount)
+			document.getElementById("correctDisplay").innerHTML = correctCount;
+		} else {
+			document.getElementById("messageWrong").style.display = "block";
+			wrongCount += 1;
+			document.getElementById("wrongDisplay").innerHTML = correctCount;
+		}
+		setTimeout(displayNone,2000)
+
+	//if(code.value.length == 5){
 	//	document.getElementById("message").style.display = "block";
 	//	setTimeout(submitForm,1000);	
 	//}
+			document.forms[0].code.value = "";
+
+}
+function displayNone(){
+	document.getElementById("messageWrong").style.display = "none";
+    document.getElementById("messageCorrect").style.display = "none";
+
 }
 function addCode(key){
 	var code = document.forms[0].code;
@@ -36,7 +58,7 @@ body {
 	background-color:#fffff0; 
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 }	
-#keypad {margin:auto; margin-top:100px; border:3px solid #006000; background-color:#6699ff;}
+#keypad {margin:auto; margin-top:100px; border:3px solid #006000; background-color:#6699ff;border-radius: 5px;}
 #keypad tr td {
 	vertical-align:middle; 
 	text-align:center; 
@@ -44,7 +66,7 @@ body {
 	border-radius: 15px;
 	font-size:32px; 
 	font-weight:bold; 
-	width:40px; 
+	width:100px; 
 	height:30px; 
 	cursor:pointer; 
 	background-color:#e6e6ff; 
@@ -59,6 +81,7 @@ body {
 	font-size:40px; 
 	border:1px solid #999999;
 }
+#result {margin:auto; margin-top:100px; border:3px solid #006000; background-color:#6699ff;}
 #message {
 	text-align:center; 
 	color:#009900; 
@@ -69,14 +92,14 @@ body {
 #messageCorrect {
 	text-align:center; 
 	color:#009900; 
-	font-size:14px; 
+	font-size:42px; 
 	font-weight:bold; 
 	display:none;
 }
 #messageWrong {
 	text-align:center; 
 	color:#009900; 
-	font-size:14px; 
+	font-size:28px; 
 	font-weight:bold; 
 	display:none;
 }
@@ -84,7 +107,7 @@ body {
 
 <form action="code.htm" method="get">
 	
-<table id="keypad" cellpadding="45" cellspacing="10">
+<table id="keypad" cellpadding="25" cellspacing="10">
     <tr>
     	<td onclick="addCode('7');">7</td>
         <td onclick="addCode('8');">8</td>
@@ -101,7 +124,7 @@ body {
         <td onclick="addCode('3');">3</td>
     </tr>
     <tr>
-    	<td onclick="emptyCode();color:#cc0000;">Clear</td>
+    	<td onclick="emptyCode();" bgcolor:"#cc0000" >Clear</td>
         <td onclick="addCode('0');">0</td>
         <td onclick="enterCode('#');">Enter</td>
     </tr>
@@ -110,6 +133,16 @@ body {
 <p id="message">ACCESSIGN...</p>
 <p id="messageCorrect">Correct!!!</p>
 <p id="messageWrong">Wrong. Please try again.</p>
+<table id="result" cellpadding="5" cellspacing="2">
+	<tr> 
+		<td> Correct: </td>
+		<td>  <span id="correctDisplay"></span></td>
+	</tr>
+	<tr> 
+		<td> Wrong: </td>
+		<td>  <span id="wrongDisplay"></span></td>
+	</tr>
+</table>
 </form>
 </body>
 </html>
