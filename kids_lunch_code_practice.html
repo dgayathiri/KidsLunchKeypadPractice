@@ -6,6 +6,8 @@ Kid's Lunch Code Practice
 
 <script type="text/javascript">
 function enterCode(key){
+		document.forms[0].code.value = "";
+
 	//if(code.value.length == 4){
 	//	document.getElementById("message").style.display = "block";
 	//	setTimeout(submitForm,1000);	
@@ -92,6 +94,8 @@ body {
 </table>
 <input type="text" name="code" value="" maxlength="5" class="display" readonly="readonly" />
 <p id="message">ACCESSIGN...</p>
+<p id="messageCorrect">Correct!!!</p>
+<p id="messageWrong">Wrong. Please try again.</p>
 </form>
 </body>
 </html>
