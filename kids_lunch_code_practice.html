@@ -10,7 +10,6 @@ function enterCode(key){
 	//	document.getElementById("message").style.display = "block";
 	//	setTimeout(submitForm,1000);	
 	//}
-
 }
 function addCode(key){
 	var code = document.forms[0].code;
@@ -22,11 +21,9 @@ function addCode(key){
 	//	setTimeout(submitForm,1000);	
 	//}
 }
-
 function submitForm(){
 	document.forms[0].submit();
 }
-
 function emptyCode(){
 	document.forms[0].code.value = "";
 }
@@ -34,25 +31,23 @@ function emptyCode(){
 <style>
 body {
 	text-align:center; 
-	background-color:#333333; 
+	background-color:#fffff0; 
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 }	
-#keypad {margin:auto; margin-top:100px;}
-
+#keypad {margin:auto; margin-top:100px; border:3px solid #006000; background-color:#6699ff;}
 #keypad tr td {
 	vertical-align:middle; 
 	text-align:center; 
-	border:1px solid #006000;
+	border:1px solid #006000; 
 	border-radius: 15px;
-	font-size:18px; 
+	font-size:32px; 
 	font-weight:bold; 
 	width:40px; 
 	height:30px; 
 	cursor:pointer; 
-	background-color:#563066; 
-	color:#CCCCCC;}
+	background-color:#e6e6ff; 
+	color:#000033;}
 #keypad tr td:hover {background-color:#999999; color:#FFFF00;}
-
 .display {
 	width:180px; 
 	height:60px;
@@ -73,7 +68,7 @@ body {
 
 <form action="code.htm" method="get">
 	
-<table id="keypad" cellpadding="45" cellspacing="3">
+<table id="keypad" cellpadding="45" cellspacing="10">
     <tr>
     	<td onclick="addCode('7');">7</td>
         <td onclick="addCode('8');">8</td>
@@ -90,7 +85,7 @@ body {
         <td onclick="addCode('3');">3</td>
     </tr>
     <tr>
-    	<td onclick="emptyCode();">Clear</td>
+    	<td onclick="emptyCode();color:#cc0000;">Clear</td>
         <td onclick="addCode('0');">0</td>
         <td onclick="enterCode('#');">Enter</td>
     </tr>
